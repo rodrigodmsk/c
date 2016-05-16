@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+    int main(void){
+
+        int a;
+        int b;
+        int soma = 0;
+        int i = 0;
+
+            printf("Digite %i numero ", i+1);
+                scanf("%i", &a);
+            printf("Digite %i numero ", i+2);
+                scanf("%i", &b);
+
+            for(i=a; i<=b; i++){
+             soma += i;
+
+            } printf("%i", soma);
+
+return 0;
+}
