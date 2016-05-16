@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+
+int main(){
+	 int id,num,invertido,digito;
+		 printf("Digite o ID do planeta: ");
+		 scanf("%d",&id);
+		 num = id;
+
+			 invertido = 0;
+			 while(num != 0){
+			    digito = num % 10;
+			    invertido = (invertide o * 10) + digito;
+			    num = num / 10;
+
+			 }
+			 if(id == invertido)
+			    printf("1\n");
+			 else
+			    printf("0\n");
+	system ("pause");
+	}
