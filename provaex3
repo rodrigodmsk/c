@@ -1,0 +1,24 @@
+#include  <stdio.h>
+
+        int main(){
+
+            int telefone, num, numero, cont = 0;
+
+                printf("Digite o numero do telefone\n");
+                    scanf("%d", &telefone);
+                printf("Digite o numero desejado\n");
+                    scanf("%d", &numero);
+
+                    num = telefone;
+
+                    while(telefone!=0){
+
+                        if(numero == telefone%10){
+                            cont++;
+                        }  telefone = (telefone/10);
+                    }
+                printf("\nNumero de telefone %d", num);
+                printf("\nNumero %d, se repete %d", numero, cont);
+
+            return 0;
+    }
