@@ -1,0 +1,3 @@
+# c
+Aprendendo C
+ESTUDOS DA UNIVERSIDADE
