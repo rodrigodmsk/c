@@ -1,0 +1,127 @@
+// DMSK - Trabalho FUP - Rodrigo Adamski
+#include<stdio.h>
+#include<stdlib.h>
+
+int idade;
+char nome[10];
+int categoria;
+char continuar;
+int ac = 1; //contador
+int cf; //categoria final
+
+int CalculaCategoria() {
+ 
+ if (idade >= 17 && idade <= 20 && categoria == 1) {
+ 	cf = 1;
+ 	printf("Categoria: %d", cf);
+ }
+ if (idade >= 17 && idade <= 20 && categoria == 2) {
+ 	cf = 2;
+ 	printf("Categoria: %d", cf);
+ }
+ if (idade >= 17 && idade <= 20 && categoria == 3) {
+ 	cf = 3;
+ 	printf("Categoria: %d", cf);
+ 	}
+ 	//GRUPO DE IDADE
+ if (idade >= 21 && idade <= 24 && categoria == 1) {
+ 	cf = 2;
+ 	printf("Categoria: %d", cf);
+ }
+ if (idade >= 21 && idade <= 24 && categoria == 2) {
+ 	cf = 3;
+ 	printf("Categoria: %d", cf);
+ }
+ if (idade >= 21 && idade <= 24 && categoria == 3) {
+ 	cf = 4;
+ 	printf("Categoria: %d", cf);
+ } 
+ //GRUPO DE IDADE
+  if (idade >= 25 && idade <= 34 && categoria == 1) {
+ 	cf = 3;
+ 	printf("Categoria: %d", cf);
+ }
+ if (idade >= 25 && idade <= 34 && categoria == 2) {
+ 	cf = 4;
+ 	printf("Categoria: %d", cf);
+ }
+ if (idade >= 25 && idade <= 34 && categoria == 3) {
+ 	cf = 5;
+ 	printf("Categoria: %d", cf);
+ } 
+ //GRUPO DE IDADE
+ if (idade >= 35 && idade <= 64 && categoria == 1) {
+ 	cf = 4;
+ 	printf("Categoria: %d", cf);
+ }
+ if (idade >= 35 && idade <= 64 && categoria == 2) {
+ 	cf = 5;
+ 	printf("Categoria: %d", cf);
+ }
+ if (idade >= 35 && idade <= 64 && categoria == 3) {
+ 	cf = 6;
+ 	printf("Categoria: %d", cf);
+ } 
+//GRUPO DE IDADE
+if (idade >= 65 && idade <= 70 && categoria == 1) {
+ 	cf = 4;
+ 	printf("Categoria: %d", cf);
+ }
+ if (idade >= 65 && idade <= 70 && categoria == 2) {
+ 	cf = 5;
+ 	printf("Categoria: %d", cf);
+ }
+ if (idade >= 65 && idade <= 70 && categoria == 3) {
+ 	cf = 6;
+ 	printf("Categoria: %d", cf);
+ } 
+ }
+
+int ValidaIdade() {
+
+if (idade < 17 || idade > 70) {
+	printf("Sua idade não está contemplada em nosso sistema de seguros.\n"); }
+  else {
+	printf("Informe o grau de risco do segurado: \n");
+	puts("1 para Baixo;\n2 para Medio;\n3 para Alto;");
+	printf("O grau de risco eh: ");
+	scanf("%d", &categoria);
+	printf("\nNome do segurado: Sr(a) %s;", nome);	
+	printf("\nIdade do segurado: %d anos; \n", idade);	
+	CalculaCategoria();
+	printf("\n\n**************D*M*S*K*******************\n");
+  }
+}
+
+int main() {
+
+printf("***********Programa para saber categoria do segurado*************\n\n");
+printf("Digite o nome do segurado: ");
+scanf("%s", &nome);
+printf("Digite a idade: ");
+scanf("%d", &idade);
+
+ValidaIdade();
+
+do {
+puts("\n\nGostaria de usar o programa novamente? \n");
+puts("s - para Sim;\nn - para nao;");
+scanf("%s", &continuar);
+if (continuar == 's') {
+	printf("Digite seu nome: ");
+	scanf("%s", &nome);
+	printf("Digite sua idade: ");
+	scanf("%d", &idade);
+	ValidaIdade();
+}
+else if (continuar == 'n'){
+puts("Agradecemos o uso do programa\n");
+return 0;
+}
+else {
+	puts("O valor digitado não foi compreendido!");
+	ac++;
+}
+}while (ac < 4);
+return 0;	
+}
