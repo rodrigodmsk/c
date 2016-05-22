@@ -1,3 +1,106 @@
+//exercicio 4
+#include <stdio.h>
+#include <stdlib.h>
+//vetor, tamanho, elementos agrupados
+
+int main() {
+int t;
+int vet[t];
+int i;
+int valor[i];
+
+puts("Digite o tamanho do vetor: ");
+scanf("%d", &t);
+
+for(i = 0; i < t; i++) {
+	printf("\nDigite o digito %d: ", i+1 );
+	scanf("%d", &vet[i]);
+}
+printf("\n\%d ", t);
+
+for(i = 0; i < t; i++) {
+	printf("%d ", vet[i] );
+}
+
+for(i = 0; i < t; i ++){
+	if (i = 0) {
+		valor[i] = vet[i] * (1*100);
+		valorf = valor[i]
+	}
+	else if (i = 1)
+	
+	}
+	
+}
+
+// EXERCICIO 3 /////////////////////
+
+
+#include <stdio.h>
+#include <stdlib.h>
+//vetor, tamanho, elementos agrupados
+
+int main() {
+int t1;
+int t2;
+int vet[t1];
+int vet2[t2];
+int i;
+int j;
+int valor[i];
+
+puts("Digite o tamanho do vetor 1: ");
+scanf("%d", &t1);
+
+for(i = 0; i < t1; i++) {
+	printf("\nDigite o digito %d: ", i+1 );
+	scanf("%d", &vet[i]);
+}
+printf("\n\%d ", t1);
+
+for(i = 0; i < t1; i++) {
+	printf("%d ", vet[i] );
+}
+printf("\n");
+
+puts("Digite o tamanho do vetor 2: ");
+scanf("%d", &t2);
+
+for(i = 0; i < t2; i++) {
+	printf("\nDigite o digito %d: ", i+1 );
+	scanf("%d", &vet2[i]);
+}
+printf("\n\%d ", t2);
+
+for(i = 0; i < t2; i++) {
+	printf("%d ", vet2[i] );
+}
+
+if(t1 > t2) {
+	j = t1;
+	}
+else if (t2 > t1) {
+	j = t2;
+}
+printf("\n");
+printf("\n");
+
+for(i = 0; i < j; i++) {
+  if (vet[0] == vet[i]){
+  	printf("Sim");
+  	}	
+  else if (vet[0] != vet[i]) {
+  	printf("não");
+  }	
+}
+
+	
+}
+
+
+//////////////////////////////////
+
+
 #include <stdio.h>
 #include <stdlib.h>
 
