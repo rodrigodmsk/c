@@ -141,3 +141,205 @@ int main() {
 	return 0;
 		
 	}
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+main()
+      {
+      float recebido, troco, trocofinal;
+      int cem=0; //seta  a quantidade de vezes que aperecem
+      int cinque=0;
+      int vinte=0;
+      int dez=0;
+      int cinco=0;
+      int dois=0;
+      int um=0;
+      float cinquec = 0;
+      float vintecincoc = 0;
+      float dezc = 0;
+      float cincoc = 0;
+      float passagem = 3.00;  //valor da passagem 
+      
+      printf("#### USE APENAS VALORES INTEIROS ####\n\n"); 
+      printf("Valor recebido: ");
+      scanf("%f", &recebido); 
+      
+      troco=recebido-passagem; //para base dos calculos de quantas vezes aparecem as notas
+      trocofinal=troco; //para mostrar no relatório
+      printf("| VALOR DA PASSAGEM: %.2f|\n",passagem);
+      printf("| VALOR RECEBIDO: %.2f|\n",recebido); 
+      printf("| VALOR DO TROCO: %.2f|\n",trocofinal);       
+      
+      
+while(troco>0){
+      if((troco >= 0.01) && (troco <= 0.05))
+      {
+      cincoc=cincoc+1; //soma uma vez no relatório o número de vezes que essa cédula vai aparecer
+      troco=troco-0.05; //retira uma parte do troco, se ele chegar a zero, acaba 
+      }
+      if((troco >= 0.6) && (troco <= 0.10))
+      {
+      dezc=dezc+1; //soma uma vez no relatório o número de vezes que essa cédula vai aparecer
+      troco=troco-0.10; //retira uma parte do troco, se ele chegar a zero, acaba 
+      }
+      if((troco >= 0.11) && (troco <= 0.25))
+      {
+      vintecincoc=vintecincoc+1; //soma uma vez no relatório o número de vezes que essa cédula vai aparecer
+      troco=troco-0.25; //retira uma parte do troco, se ele chegar a zero, acaba 
+      }
+	  if((troco >= 0.26) && (troco <= 0.50))
+      {
+      cinquec=cinquec+1; //soma uma vez no relatório o número de vezes que essa cédula vai aparecer
+      troco=troco-0.50; //retira uma parte do troco, se ele chegar a zero, acaba 
+      }      
+      if(troco == 1.00)
+      {
+      um=um+1; //soma uma vez no relatório o número de vezes que essa cédula vai aparecer
+      troco=troco-1.00; //retira uma parte do troco, se ele chegar a zero, acaba 
+      }
+      if((troco >= 2.00) && (troco < 5.00))
+      {
+      dois=dois+1.00;
+      troco=troco-2.00;
+      }
+      if((troco >= 5.00) && (troco < 10.00))
+      {
+      cinco=cinco+1;
+      troco=troco-5.00;
+      }
+      if((troco >= 10.00) && (troco < 20.00))
+      {
+      dez=dez+1;
+      troco=troco-10.00;
+      }
+      if((troco >= 20.00) && (troco < 50.00))
+      {
+      vinte=vinte+1;
+      troco=troco-20.00;
+      }
+      if((troco >= 50.00) && (troco < 100.00))
+      {
+      cinque=cinque+1;
+      troco=troco-50.00;
+      }
+      if(troco >= 100.00)
+      {
+      cem=cem+1;
+      troco=troco-100.00;
+      }
+    
+      
+      printf("+-----------------------------------------------+\n");
+      printf("|                     TROCO                     |\n");
+      printf("|                                               |\n");
+      printf("| VALOR DA PASSAGEM: %.2f|\n",passagem);
+      printf("| VALOR RECEBIDO: %.2f|\n",recebido); 
+      printf("| VALOR DO TROCO: %.2f|\n",trocofinal);       
+      printf("+-----------------------------------------------+\n");
+      printf("|           CEDULAS A SEREM ENTREGUES           |\n");
+      printf("|                                               |\n");
+      printf("|    VALOR  |    QUANTIDADE                     |\n");            
+      printf("|    R$1    |    %.1f                     |\n",um);
+      printf("|    R$2    |    %.1f                     |\n",dois);                 
+      printf("|    R$5    |    %.1f                    |\n",cinco);                  
+      printf("|    R$10   |    %.1f                     |\n",dez);                  
+      printf("|    R$20   |    %.1f                     |\n",vinte);                  
+      printf("|    R$50   |    %.1f                     |\n",cinque);                  
+      printf("|    R$100  |    %.1f                     |\n",cem);                  
+      printf("|                                               |\n");
+      printf("+-----------------------------------------------+\n");      
+  }
+      }                         
+      
+      
+      
+      #include <stdio.h>
+#include <stdlib.h>
+
+main()
+      {
+      int recebido, troco, trocofinal;
+      int cem=0; //seta  a quantidade de vezes que aperecem
+      int cinque=0;
+      int vinte=0;
+      int dez=0;
+      int cinco=0;
+      int dois=0;
+      int um=0;
+
+      int passagem = 3;  //valor da passagem 
+      printf("#### USE APENAS VALORES INTEIROS ####\n\n"); 
+      printf("Valor recebido: ");
+      scanf("%d", &recebido); 
+      
+      
+      if(passagem > recebido){ //se o cara pagar menos que vale a passagem
+      printf("Dinheiro insuficiente \n\n");     
+           }else{
+      troco=recebido-passagem; //para base dos calculos de quantas vezes aparecem as notas
+      trocofinal=troco; //para mostrar no relatório
+      
+while(troco>0){
+            
+      if(troco == 1)
+      {
+      um=um+1; //soma uma vez no relatório o número de vezes que essa cédula vai aparecer
+      troco=troco-1; //retira uma parte do troco, se ele chegar a zero, acaba 
+      }
+      if((troco >= 2) && (troco < 5))
+      {
+      dois=dois+1;
+      troco=troco-2;
+      }
+      if((troco >= 5) && (troco < 10))
+      {
+      cinco=cinco+1;
+      troco=troco-5;
+      }
+      if((troco >= 10) && (troco < 20))
+      {
+      dez=dez+1;
+      troco=troco-10;
+      }
+      if((troco >= 20) && (troco < 50))
+      {
+      vinte=vinte+1;
+      troco=troco-20;
+      }
+      if((troco >= 50) && (troco < 100))
+      {
+      cinque=cinque+1;
+      troco=troco-50;
+      }
+      if(troco >= 100)
+      {
+      cem=cem+1;
+      troco=troco-100;
+      }
+      }
+      
+      printf("+-----------------------------------------------+\n");
+      printf("|                     TROCO                     |\n");
+      printf("|                                               |\n");
+      printf("| VALOR DA PASSAGEM: %-29d|\n",passagem);
+      printf("| VALOR RECEBIDO: %-30d|\n",recebido); 
+      printf("| VALOR DO TROCO: %-30d|\n",trocofinal);       
+      printf("+-----------------------------------------------+\n");
+      printf("|           CEDULAS A SEREM ENTREGUES           |\n");
+      printf("|                                               |\n");
+      printf("|    VALOR  |    QUANTIDADE                     |\n");            
+      printf("|    R$1    |    %-10d                     |\n",um);
+      printf("|    R$2    |    %-10d                     |\n",dois);                 
+      printf("|    R$5    |    %-10d                     |\n",cinco);                  
+      printf("|    R$10   |    %-10d                     |\n",dez);                  
+      printf("|    R$20   |    %-10d                     |\n",vinte);                  
+      printf("|    R$50   |    %-10d                     |\n",cinque);                  
+      printf("|    R$100  |    %-10d                     |\n",cem);                  
+      printf("|                                               |\n");
+      printf("+-----------------------------------------------+\n");      
+                      
+      }                         
+      
+      }
