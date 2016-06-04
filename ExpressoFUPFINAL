@@ -1,0 +1,274 @@
+#include <stdio.h>
+#include <stdlib.h>
+//DMSK 
+//SISTEMA DE VENDA DE PASSAGENS
+//OB1: COMO DAR UM CLEAR NO SISTEMA (OU EM UMA VARIÁVEL ESPECÍFICA) PARA LIMPAR A VARIÁVEL (turno) 
+//OB2: COMO LIDAR COM ESSE MENU, SE TEM VÁRIAS INTERDEPENDÊNCIAS DE UM SWITCH PARA OUTRO.  A QUESTÃO NÃO CHEGA A PEDIR ISSO
+
+int vagasManha[7] = {0, 0, 0, 0, 0, 0, 0}; //as falsianes, sÃ£o umas desocupadas (seria como a vaga i estÃ¡ ocupada?)
+int vagasTarde[7] = {0, 0, 0, 0, 0, 0, 0}; 
+int vagasNoite[7] = {0, 0, 0, 0, 0, 0, 0}; 
+int i, turno, escolhacompra, lugar, opcaopagamento, j;
+int verificador = 10;
+double passagem = 3.30;
+int cem=0; //seta  a quantidade de vezes que aperecem
+int cinque=0;
+int vinte=0;
+int dez=0;
+int cinco=0;
+int dois=0;
+int cinquec = 0;
+int vcincoc = 0;
+int dezc = 0;
+int cincoc = 0;
+int um=0;
+int menu;
+int tipoDePagamento, numeroCartao;
+double troco;
+float dinheiroRecebido;
+int acmcash = 0;
+int acmcard = 0;
+float totalcash = 0;
+float totalcard = 0;
+float totalarrecadado = 0;
+	
+	
+void opcao_invalida() {
+	puts("\n Opcao invalida!");
+}
+void escolha_turno (){
+
+   	printf("\n\n Em qual turno voce quer viajar? ");
+   	printf("\n 1 - Manha;\n 2 - Tarde; \n 3 - Noite; ");
+   	printf("\n\n Turno escolhido: ");
+   	scanf ("%d", &turno);
+   	if ( turno == 1) {
+   		puts("\n Manha selecionada;\n");
+   		} else if (turno == 2 )  {
+	 	puts("\n Tarde selecionada");
+	} else if (turno == 3) {
+    	puts("\n Noite selecionada");
+	}
+	else {
+		opcao_invalida();
+	}
+	}
+	
+void  venderpassagem() {
+	printf("\n\n Valor da passagem R$ 3,30.\n Voce quer comprar uma passagem?");
+	printf("\n Digite 1 para SIM ou 2 para NAO: ");
+	scanf("%d", &escolhacompra);
+	if (escolhacompra == 1){
+		printf("\n Digite o lugar desejado: ");
+		scanf("%d", &lugar);
+		if ( turno == 1) {
+		vagasManha[lugar] = 10;
+		}
+		else if ( turno == 2 ) {
+		vagasTarde[lugar] = 10;
+		}
+	   	else if ( turno == 3 ) {
+		vagasNoite[lugar] = 10;
+	    }
+    }
+    else if (escolhacompra == 2) {
+		puts(" Obrigado por usar nosso programa!");
+		exit(0);
+	}
+	else {
+		opcao_invalida();
+	}
+}
+void total_vagas() {
+	if (turno == 0) {
+		printf("\n Voce deve escolher um turno primeiro!");
+		printf("\n\n Em qual turno voce quer viajar? ");
+   	    printf("\n 1 - Manha;\n 2 - Tarde; \n 3 - Noite; ");
+   	    printf("\n\n Turno escolhido: ");
+   	    scanf ("%d", &turno);
+   	if ( turno == 1) {
+   		puts("\n Manha selecionada;\n");
+   		} else if (turno == 2 )  {
+	 	puts("\n Tarde selecionada");
+	} else if (turno == 3) {
+    	puts("\n Noite selecionada");
+	}
+	else {
+		opcao_invalida();
+	}
+	}
+	
+	puts ("\n Mostrando vagas para o turno selecionado:");
+	for (i = 1; i < 7; i++) {
+	if (turno == 1) {
+	printf("\n %d - ", i); 
+	if (vagasManha[i] > 0) {
+		printf("Ocupado");
+	}
+	else {
+		printf("Disponivel");
+	}
+	}
+	if (turno == 2) {
+	printf("\n %d - ", i); 
+	if (vagasTarde[i] > 0) {
+		printf("Ocupado");
+	}
+	else {
+		printf("Disponivel");
+	}
+	}
+	if (turno == 3) {
+	printf("\n %d - ", i); 
+	if (vagasNoite[i] > 0) {
+		printf("Ocupado");
+	}
+	else {
+		printf("Disponivel");
+	}
+	}
+    }
+}
+
+void restam_vagas() {
+	printf("\n\n Confirmando se ainda existem vagas em aberto...");
+	for (j = 1; j < 7; j++) {
+	 if (vagasManha[j] < verificador || vagasTarde[j] < verificador || vagasNoite[j] < verificador)	{
+	 	printf("\n Ainda existem assentos disponiveis, por favor informe o seguinte passageiro.\n");
+	 	break;
+	 }
+	else if (vagasManha[j] == vagasManha[6] && vagasTarde[j] == vagasTarde[6] && vagasNoite[j] == vagasNoite[6]) {
+		printf("\n Topic lotada! Por favor, aguarde a proxima viagem! ");
+		break;
+		exit(0);
+
+	}	
+	}
+		
+}
+
+
+void tipo_pagamento() {
+	printf("\n Como voce quer efetuar o pagamento? 1 - Dinheiro / 2 - Cartao de credito: ");
+	scanf("%d", &tipoDePagamento);
+		
+	if (tipoDePagamento == 1){
+			acmcash = acmcash + 1;
+			printf("\n Vamos calcular seu troco. Digite com que cedula voce vai pagar: ");
+			scanf("%f", &dinheiroRecebido);
+			if(dinheiroRecebido < 3.30){
+				printf("\n Dinheiro insuficiente!\n");
+				tipo_pagamento();
+			}else if(dinheiroRecebido >= 3.30){
+				
+			troco = (dinheiroRecebido - 3.30);
+			
+			printf("\n Troco: %.2f\n\n", troco);
+
+					cinque = (troco/50);				
+					troco = (troco - (cinque*50));
+					
+					vinte = (troco/20);				
+					troco = (troco - (vinte*20));
+					
+					dez = (troco/10);				
+					troco = (troco - (dez*10));
+					
+					cinco = (troco/5);				
+					troco = (troco - (cinco*5));
+					
+					dois = (troco/2);				
+					troco = (troco - (dois*2));
+					
+					um = (troco/1);
+					troco = (troco - (um*1));
+					
+					cinquec = (troco/0.5);
+					troco = (troco - (cinquec*0.5));
+					
+					vcincoc = (troco/0.25);
+					troco = (troco - (vcincoc*0.25));
+					
+					dezc = (troco/0.10);
+					troco = (troco - (dezc*0.10));
+					
+					cincoc = (troco/0.05);
+					troco = (troco - (cincoc*0.05));
+					
+			printf("\n	Para a passagem comprada o troco deve ser dado da seguinte forma: \n\n");
+			
+			printf("\n Troco:\n %d de R$ 50,00 \n %d de R$ 20,00 \n %d de R$ 10,00 \n %d de R$ 5,00 \n %d de R$ 2,00 \n %d de R$ 1,00 \n %d de R$ 0,50 \n %d de R$ 0,25 \n %d de R$ 0,10 \n %d de R$ 0,05\n", cinque, vinte, dez, cinco, dois, um, cinquec, vcincoc, dezc, cincoc);		
+			
+		
+	}
+	}
+	
+		else if (tipoDePagamento == 2) {
+			acmcard = acmcard + 1;
+			printf("\n Cartao de credito selecionado. Digite o numero do cartao: ");
+			scanf("%d", &numeroCartao);
+			printf("\n	OK!	Passagem comprada!\n\n");
+			
+}
+	  /*else if (opcaopagamento == 2) {
+		acmcard = acmcard + 1;
+		printf("\n Cartao de credito selecionado. Pagamento recebido! ");
+	}*/
+	}
+
+
+void relatorio() {
+	totalcash = acmcash * 3.30;
+	totalcard = acmcard * 3.30;
+	totalarrecadado = totalcash + totalcard;
+	printf("\n\n\n XX Relatorio de venda de passagens XX");
+	printf("\n Quantidade de valor arrecadado em dinheiro: ");
+	printf("%.2f", totalcash);
+	printf("\n Quantidade de valor arrecadado em cartao: ");
+	printf("%.2f", totalcard);
+	printf("\n Quantidade de valor arrecadado no total: ");
+	printf("%.2f", totalarrecadado);
+	printf("\n\n\n");
+	
+		
+}	
+
+void menu_inicial() {
+	printf("\n MENU DE SELECAO:");
+	printf("\n\n 1 - Escolher o turno da viagem;");
+	printf("\n 2 - Ver a disponibilidade de assentos vagos");
+	printf("\n 3 - Escolher o seu assento;");
+    printf("\n 4 - Escolher a forma de pagamento; \n");
+    printf("     Digite a opcao desejada: ");
+    scanf("%d", &menu);
+    
+    switch(menu){
+		case 1: 
+		escolha_turno();
+		case 2:
+		total_vagas();     
+		case 3: 
+		venderpassagem();
+		case 4:
+		tipo_pagamento();
+		printf("\n\nXXXXXXX Compra realizada com sucesso! XXXXXX");
+		case 'v':
+	    restam_vagas();
+		break;
+		case 9:
+		relatorio();	
+		break;
+		default:
+		printf("\n Digito nao reconhecido. Tente novamente! \n\n");
+    }
+}
+int main() {
+	puts("XXXXXXXX Bem vindo ao sistema de compra de passagens da FUP Viagens  XXXXXXX\nXXXXXXXXXX  Vamos comecar o processo de compra? XXXXXXXXXXXXXXX");
+	
+    do {
+    menu_inicial();	
+        } while(1);
+	
+	return 0;
+		
+	}
