@@ -1,0 +1,68 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void  abertura_do_sistema() {
+	puts("XXXXXX Bem-vindo ao sistema de nota fiscal da Loja Vogue! XXXXXX");
+    puts("\nPrecisamos de algumas informações suas para criarmos sua nota fistal.");
+	}
+	
+struct nota_fiscal{
+	char nome[20]; char cpf[20];
+	};
+	
+ //dados do cliente
+	
+struct id_produtos{
+	char prod1[20]; char prod2[20]; char prod3[20];
+	};
+	
+int main(){
+	struct nota_fiscal dc;
+	//dc.cpf = "019101910";
+	printf("\nDigite seu nome: ");
+	scanf("%s", dc.nome);
+	printf("\nDigite seu nome: ");
+	scanf("%s", dc.cpf);
+	
+	abertura_do_sistema();
+	//entrada_de_dados();
+	
+	FILE *fp; //dá nome ao ponteiro
+	fp = fopen("nota.dat","w");
+	if(fp == NULL){ 
+		printf("Erro na abertura do arquivo!\n");
+		system("pause");
+		exit(1);
+	}
+	//struct nota_fiscal cad = {dc.nome, dc.cpf}; entrada de valor da variável, 
+	fwrite(&dc,sizeof(struct nota_fiscal),1,fp); //cuidar para não fazer vetor de int dentro do struct
+	
+	struct id_produtos prod = {"\nProduto 01", "\nProduto 02", "\nProduto 03"};
+	fwrite(&prod,sizeof(struct id_produtos),1,fp); //cuidar para não fazer vetor de int dentro do struct
+		fclose(fp);
+		system("pause");
+		return 0;
+	}
+
+
+
+#include <stdio.h>
+#include <stdlib.h>
+struct cadastro{
+	char matr[5]; char nome[100]; char end[50]; int saldo;
+	};
+	
+int main(){
+	FILE *teste;
+	teste = fopen("cadastro.txt","w");
+	if(teste == NULL){
+		printf("Erro na abertura do arquivo!\n");
+		system("pause");
+		exit(1);
+	}
+	struct cadastro cad = {"123", "Luis henrique de Pinho Júnior", "Rua A, 110", 40};
+	fwrite(&cad,sizeof(struct cadastro),1,teste);
+		fclose(teste);
+		system("pause");
+		return 0;
+	}
