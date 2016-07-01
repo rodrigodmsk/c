@@ -1,0 +1,14 @@
+está na stdlib.h
+
+Conceito de memória - salvar em cima de um arquivo
+
+Uso da memória - 
+Memoria estática
+
+memória dinâmica
+
+
+exemplo?
+
+int *v
+v = (int *) malloc(10*sizeof(int));
